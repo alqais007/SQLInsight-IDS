@@ -186,6 +186,25 @@ Assets/Performance/
 
 # Web Application Testing
 
+# Project Screenshots
+
+## Frontend Interface
+
+![Frontend Interface](Assets/Screenshots/frontend_interface_01.png)
+
+## SQL Injection Detection
+
+![SQL Injection Detection](Assets/Screenshots/sqli_alert_01.png)
+
+## Detection Results
+
+![Detection Results](Assets/Screenshots/detection_result_01.png)
+
+## Database Backend
+
+![Database Backend](Assets/Screenshots/database_backend_01.png)
+
+
 The system was tested using a vulnerable web application environment.
 
 Testing included:
