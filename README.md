@@ -2,6 +2,12 @@
 
 ## Machine Learning-Based SQL Injection Detection System
 
+![Python](https://img.shields.io/badge/Python-3.x-blue)
+![Machine Learning](https://img.shields.io/badge/Machine%20Learning-Logistic%20Regression-orange)
+![Security](https://img.shields.io/badge/Focus-Cybersecurity-red)
+![IDS](https://img.shields.io/badge/Type-Intrusion%20Detection%20System-green)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+
 ![System Architecture](Assets/Architecture/system_architecture_diagram.png)
 
 ## Project Overview
