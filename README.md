@@ -1,221 +1,281 @@
 # SQLInsight-IDS
-## Machine Learning-Based Intrusion Detection System for SQL Injection Attacks
 
-![Cybersecurity](https://img.shields.io/badge/Domain-Cybersecurity-red)
-![Machine Learning](https://img.shields.io/badge/Technology-Machine%20Learning-blue)
-![Python](https://img.shields.io/badge/Language-Python-yellow)
-![Security](https://img.shields.io/badge/Focus-SQL%20Injection%20Detection-green)
+## Machine Learning-Based SQL Injection Detection System
 
----
+![System Architecture](Assets/Architecture/system_architecture_diagram.png)
 
-## 📌 Project Overview
+## Project Overview
 
-SQLInsight-IDS is a Machine Learning-based Intrusion Detection System (IDS) designed to detect and classify SQL Injection (SQLi) attacks against web applications.
+SQLInsight-IDS is a Machine Learning-based Intrusion Detection System (IDS) designed to detect SQL Injection (SQLi) attacks against web applications.
 
-The project explores how machine learning techniques can enhance traditional security detection methods by identifying malicious SQL query patterns and distinguishing them from legitimate database requests.
+The project combines data preprocessing, machine learning classification, and detection mechanisms to identify malicious SQL queries and distinguish them from legitimate database requests.
 
-The system was developed as a cybersecurity research project focusing on intelligent threat detection, web application security, and automated attack classification.
+The system was developed as a cybersecurity research project to investigate how machine learning techniques can improve SQL Injection detection accuracy compared to traditional signature-based approaches.
 
 ---
 
-# 🎯 Objectives
+# Objectives
 
 The main objectives of SQLInsight-IDS are:
 
-- Detect SQL Injection attacks using Machine Learning.
-- Analyze SQL query patterns and identify malicious behavior.
-- Reduce dependency on traditional signature-based detection.
-- Minimize false positive detection.
-- Evaluate machine learning performance using classification metrics.
-- Demonstrate detection capabilities through a vulnerable web application environment.
+* Detect SQL Injection attacks using Machine Learning.
+* Classify SQL queries as malicious or benign.
+* Reduce false positive detection.
+* Analyze SQL query patterns.
+* Evaluate model performance using machine learning metrics.
+* Demonstrate detection capabilities through a vulnerable web application environment.
 
 ---
 
-# 🛡️ Problem Statement
+# System Architecture
 
-SQL Injection remains one of the most critical web application vulnerabilities.
+The overall system architecture consists of:
 
-Traditional security solutions often rely on predefined rules and signatures, which may fail against:
+* Dataset collection and preparation
+* Data preprocessing
+* Feature extraction
+* Machine learning model training
+* Detection engine
+* Alert generation
+* Web application testing environment
 
-- New attack variations
-- Obfuscated payloads
-- Unknown SQL Injection patterns
+Architecture diagram:
 
-SQLInsight-IDS addresses this challenge by applying machine learning techniques to identify malicious SQL queries based on learned attack characteristics.
-
----
-
-# ⚙️ System Workflow
-
-The project follows the following workflow:
-SQL Query Input
-|
-↓
-Data Preprocessing
-|
-↓
-Feature Extraction
-|
-↓
-Machine Learning Model
-|
-↓
-Classification
-|
-↓
-Benign Query / SQL Injection Attack
-
-
+![System Architecture](Assets/Architecture/system_architecture_diagram.png)
 
 ---
 
-# 🏗️ System Components
+# Machine Learning Workflow
 
-## 1. Dataset
+![ML Workflow](Assets/Diagrams/ml_workflow_diagram.png)
 
-The dataset contains SQL query samples divided into:
+The workflow consists of:
 
-- Benign SQL queries
-- Malicious SQL Injection payloads
-
-The dataset is processed and prepared before model training.
+1. Dataset preparation
+2. Data cleaning and preprocessing
+3. Feature extraction
+4. Model training
+5. Model evaluation
+6. SQL Injection detection
+7. Alert generation
 
 ---
 
-## 2. Machine Learning Model
+# Machine Learning Model
+
+## Algorithm
+
+The project uses:
+
+**Logistic Regression**
+
+as the classification algorithm.
 
 The model performs binary classification:
 
-| Class | Description |
-|---|---|
-| 0 | Benign SQL Query |
-| 1 | SQL Injection Attack |
+| Class | Description         |
+| ----- | ------------------- |
+| 0     | Benign SQL Query    |
+| 1     | SQL Injection Query |
 
-The model learns patterns associated with malicious SQL behavior.
-
----
-
-## 3. Detection Engine
-
-The detection engine analyzes incoming SQL queries and provides classification results:
-
-- Legitimate request
-- Potential SQL Injection attack
+The trained model analyzes SQL query features and predicts whether the input query represents a potential SQL Injection attack.
 
 ---
 
-## 4. Web Application Proof of Concept
+# Dataset
 
-A vulnerable WordPress environment was used to demonstrate:
+The dataset contains:
 
-- SQL Injection exploitation
-- Query analysis
-- Detection capability
-- Model response
+* Normal SQL queries
+* SQL Injection payloads
+* Malicious query patterns
+
+Dataset processing includes:
+
+* Data cleaning
+* Feature preparation
+* Label assignment
+* Model-ready transformation
+
+Available datasets:
+
+```
+Assets/Dataset/
+├── clean-dataset.csv
+└── modified-dataset.csv
+```
 
 ---
 
-# 📊 Model Performance
+# Detection Engine
 
-The trained model achieved the following results:
+The detection engine provides:
 
-| Metric | Score |
-|---|---|
-| Accuracy | 99.08% |
+* SQL query analysis
+* Access log monitoring
+* Attack simulation
+* Alert generation
+* Detection result processing
+
+Source code:
+
+```
+Assets/Source-Code/Detection-Engine/
+```
+
+Components:
+
+* `detection.py`
+* `monitor.py`
+* `alerts.py`
+* `accesslog.py`
+* `simulate_traffic.py`
+* `geoip.py`
+
+---
+
+# Model Performance
+
+The Logistic Regression model was evaluated using:
+
+* Accuracy
+* Precision
+* Recall
+* F1-Score
+
+Performance:
+
+| Metric    | Score  |
+| --------- | ------ |
+| Accuracy  | 99.08% |
 | Precision | 99.03% |
-| Recall | 98.47% |
-| F1-Score | 98.75% |
+| Recall    | 98.47% |
+| F1-Score  | 98.75% |
 
-These results demonstrate strong capability in detecting SQL Injection attacks with high classification performance.
+Evaluation results and confusion matrices:
 
----
-
-# 🧪 Testing Environment
-
-The project was tested using:
-
-- Vulnerable WordPress Application
-- SQL Injection attack scenarios
-- Machine Learning classification model
+```
+Assets/Performance/
+```
 
 ---
 
-# 📸 Demonstration
+# Experiments
 
-Screenshots will be added:
-/Assets
-├── wordpress-demo.png
-├── sqli-testing.png
-└── model-results.png
+The project includes multiple experiments to evaluate model effectiveness.
 
+Experiment results include:
 
-Examples:
+* Performance metrics
+* Confusion matrices
+* Detection analysis
 
-- Vulnerable application testing
-- SQL Injection attack execution
-- Detection results
-- Model evaluation output
+Available in:
+
+```
+Assets/Performance/
+```
 
 ---
 
-# 📂 Repository Structure
+# Web Application Testing
+
+The system was tested using a vulnerable web application environment.
+
+Testing included:
+
+* SQL Injection attempts
+* Frontend interaction
+* Database communication
+* Detection response
+
+Screenshots:
+
+```
+Assets/Screenshots/
+```
+
+---
+
+# Repository Structure
+
+```
 SQLInsight-IDS
-│
-├── README.md
-│
-├── Documentation
-│ └── README.md
-│
-├── Dataset
-│ └── README.md
-│
-├── Model
-│ └── README.md
-│
-├── Source-Code
-│ └── README.md
-│
-└── Results
-└── README.md
 
+├── README.md
+├── LICENSE
+│
+└── Assets
+    │
+    ├── Architecture
+    ├── Diagrams
+    ├── Screenshots
+    ├── Performance
+    ├── Dataset
+    ├── Source-Code
+    └── Thesis
+```
 
 ---
 
-# 🚀 Future Improvements
+# Technologies Used
+
+## Programming
+
+* Python
+
+## Machine Learning
+
+* Logistic Regression
+* Scikit-learn
+
+## Cybersecurity
+
+* SQL Injection Detection
+* Intrusion Detection Systems
+* Web Application Security
+
+## Development Environment
+
+* Google Colab
+* Python Libraries
+* WordPress Testing Environment
+
+---
+
+# Future Improvements
 
 Future enhancements include:
 
-- Real-time SQL traffic monitoring
-- Integration with SIEM platforms
-- Microsoft Defender XDR integration
-- Automated threat response using SOAR
-- Deep learning-based detection models
-- API deployment for enterprise environments
+* Real-time SQL traffic monitoring
+* SIEM integration
+* API-based deployment
+* Automated incident response
+* Advanced machine learning models
+* Integration with security monitoring platforms
 
 ---
 
-# 🛠️ Technologies Used
+# Documentation
 
-- Python
-- Machine Learning
-- SQL
-- WordPress
-- Web Application Security
-- SQL Injection Testing
-- Data Processing Techniques
+Additional documentation:
+
+```
+Assets/Source-Code/Documentation/
+```
+
+Includes:
+
+* Architecture documentation
+* Dataset documentation
+* Model documentation
+* API documentation
+* Security documentation
 
 ---
 
-# 👨‍💻 Author
+# Author
 
 Cybersecurity Research Project
 
-**SQLInsight-IDS**
-
-Developed as part of cybersecurity research focusing on intelligent intrusion detection and web application protection.
-
-
-
-
-
-
+SQLInsight-IDS
